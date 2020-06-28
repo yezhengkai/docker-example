@@ -1,0 +1,104 @@
+version: "3.7"
+
+services:
+  tf-ssh:
+    image: "cgrg/tf-ssh:latest"
+    container_name: "tf-ssh"
+    hostname: "cgrg_tf"
+    ports:
+      - "49154:22"
+      - "6006:6006"
+      - "8888-8892:8888-8892"
+    volumes:
+      - /data-hdd/shared/:/data-hdd/shared/
+      - /data-ssd/shared/:/data-ssd/shared/
+      - ./entrypoint/tf_entry:/docker-entrypoint-init.d/
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      NVIDIA_VISIBLE_DEVICES: "all"
+  matlab-vnc-user1:
+    image: "cgrg/matlab-vnc:gpu"
+    container_name: "matlab-vnc-gpu-user1"
+    hostname: "cgrg_matlab_vnc_gpu"
+    user: "1001:1001"
+    shm_size: "512M"
+    ports:
+      - "6901:6901"
+    volumes:
+      - /data-hdd/shared/:/data-hdd/shared/
+      - /data-ssd/shared/:/data-ssd/shared/
+    environment:
+      TZ: "Asia/Taipei"
+      NVIDIA_VISIBLE_DEVICES: "all"
+      VNC_RESOLUTION: "1920x1080"
+      VNC_PW_FILE: /run/secrets/vnc_password_user1
+    secrets:
+      - vnc_password_user1
+  matlab-vnc-user2:
+    image: "cgrg/matlab-vnc:gpu"
+    container_name: "matlab-vnc-gpu-user2"
+    hostname: "cgrg_matlab_vnc_gpu"
+    user: "1002:1002"
+    shm_size: "512M"
+    ports:
+      - "6902:6901"
+    volumes:
+      - /data-hdd/shared/:/data-hdd/shared/
+      - /data-ssd/shared/:/data-ssd/shared/
+    environment:
+      TZ: "Asia/Taipei"
+      NVIDIA_VISIBLE_DEVICES: "all"
+      VNC_RESOLUTION: "1920x1080"
+      VNC_PW_FILE: /run/secrets/vnc_password_user2
+    secrets:
+      - vnc_password_user2
+  postgresql:
+    image: postgres:12.2
+    container_name: "cgrg-postgresql"
+    hostname: "cgrg_postgresql"
+    #ports:
+    #  - "5432:5432"
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
+      - ./entrypoint/postgres_entry:/docker-entrypoint-initdb.d
+    environment:
+      TZ: "Asia/Taipei"
+      POSTGRES_USER_FILE: /run/secrets/postgres_username
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_DB_FILE: /run/secrets/postgres_db
+    secrets:
+      - postgres_username
+      - postgres_password
+      - postgres_db
+  mongodb:
+    image: mongo:4.2.3-bionic
+    container_name: "cgrg-mongodb"
+    hostname: "cgrg_mongodb"
+    #ports:
+    #  - "27017:27017"
+    volumes:
+      - ./mongodb:/data/db
+      - ./entrypoint/mongo_entry:/docker-entrypoint-initdb.d
+    environment:
+      TZ: "Asia/Taipei"
+      MONGO_INITDB_ROOT_USERNAME_FILE: /run/secrets/mongo_root_username
+      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongo_root_password
+    secrets:
+      - mongo_root_username
+      - mongo_root_password
+secrets:
+  vnc_password_user1:
+    file: ./secrets/vnc_password_user1
+  vnc_password_user2:
+    file: ./secrets/vnc_password_user2
+  postgres_username:
+    file: ./secrets/postgres_username
+  postgres_password:
+    file: ./secrets/postgres_password
+  postgres_db:
+    file: ./secrets/postgres_db
+  mongo_root_username:
+    file: ./secrets/mongo_root_username
+  mongo_root_password:
+    file: ./secrets/mongo_root_password
+  
