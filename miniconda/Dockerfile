@@ -1,4 +1,4 @@
-## References:
+# References:
 # https://github.com/ContinuumIO/docker-images/issues/151
 # https://towardsdatascience.com/conda-pip-and-docker-ftw-d64fe638dc45
 
@@ -8,11 +8,11 @@ FROM continuumio/miniconda3:4.9.2
 SHELL [ "/bin/bash", "--login", "-c" ]
 
 # create a conda environment
-COPY ./src/conda_env/ /conda_env/
-RUN cd /conda_env/; conda env update --prune --file environment.yml
+COPY ./src/conda-env/ /conda-env/
+RUN cd /conda-env/; conda env update --prune --file environment.yml
 
 # update list, upgrade all package and install essential packages
-RUN apt-get update \
+RUN apt-get --allow-releaseinfo-change update \
     && apt-get -y upgrade \
     && apt-get -y install sudo \
     && rm -rf /var/lib/apt/lists/*
