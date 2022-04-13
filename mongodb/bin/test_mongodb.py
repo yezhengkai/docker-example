@@ -12,11 +12,11 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 
-host = 'cgrg-mongodb'  # ip or server name
+host = 'kai-mongodb'  # ip or server name
 port = 27017
-username = 'cgrg'
-password = 'cgrgPass'
-authSource = 'cgrgdb'
+username = 'user1'
+password = 'user1Pass'
+authSource = 'mydb'
 authMechanism = 'SCRAM-SHA-256'
 
 ## Making a Connection with MongoClient
@@ -31,11 +31,11 @@ client = MongoClient(uri)
 
 
 ## Getting a Database and collection
-db = client['cgrgdb']  
+db = client['mydb']  
 collection = db['test_collection']
 
 # Attribute style access won’t work (like test-database)
-# db = client.cgrgdb
+# db = client.mydb
 # collection = db.test
 
 

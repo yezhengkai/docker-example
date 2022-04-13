@@ -8,7 +8,7 @@
 
 path="."
 Dockerfile="${path}/Dockerfile"
-image_name="cgrg/matlab-ssh:gpu"
+image_name="kai/matlab-ssh:gpu"
 
 
 # replace "FROM ..." whole line as "FROM ${base_image}""

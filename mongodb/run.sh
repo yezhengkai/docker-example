@@ -2,9 +2,9 @@
 
 ## setting
 # basic information
-container_name="cgrg-mongodb"
+container_name="kai-mongodb"
 image_name="mongo:4.2.3-bionic"
-hostname_in_container="cgrg_mongodb"
+hostname_in_container="kai_mongodb"
 
 # mongodb port
 host_port_mongo=27017

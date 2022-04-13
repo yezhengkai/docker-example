@@ -11,13 +11,13 @@
 echo "Creating mongo users..."
 
 mongo --port 27017 --authenticationDatabase "admin" -u "$MONGO_INITDB_ROOT_USERNAME" -p "$MONGO_INITDB_ROOT_PASSWORD" << EOF
-use cgrgdb
+use mydb
 db.createUser(
   {
     user: "user1",
     pwd: "user1Pass",
     roles:[ {role: "readWrite",
-             db: "cgrgdb"} ]
+             db: "mydb"} ]
   }
 )
 db.createUser(
@@ -25,7 +25,7 @@ db.createUser(
     user: "user2",
     pwd: "user2Pass",
     roles:[ {role: "readWrite",
-             db: "cgrgdb"} ]
+             db: "mydb"} ]
   }
 )
 EOF

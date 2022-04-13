@@ -14,9 +14,9 @@ set -e
 # This allows here-documents within shell scripts to be indented in a natural fashion. 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
 
-    CREATE USER cgrguser1 WITH PASSWORD 'cgrguser1Pass';
-    CREATE USER cgrguser2 WITH PASSWORD 'cgrguser2Pass';
-    CREATE DATABASE cgrgdb;
-    GRANT ALL PRIVILEGES ON DATABASE cgrgdb TO cgrguser1, cgrguser2;
+    CREATE USER user1 WITH PASSWORD 'user1Pass';
+    CREATE USER user2 WITH PASSWORD 'user2Pass';
+    CREATE DATABASE mydb;
+    GRANT ALL PRIVILEGES ON DATABASE mydb TO user1, user2;
 
 EOSQL

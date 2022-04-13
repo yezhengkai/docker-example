@@ -7,7 +7,7 @@
 
 ## Setting up default values.
 path="./gpu"
-image_name="cgrg/ssh-x11:gpu"
+image_name="kai/ssh-x11:gpu"
 stop_assign=false
 
 ## parse arguments
@@ -21,7 +21,7 @@ do
         -c|--cpu)
             path="./cpu"
             if [ "$stop_assign" != true ]; then
-                image_name="cgrg/ssh-x11:cpu"
+                image_name="kai/ssh-x11:cpu"
             fi
             shift # past argument
             flag=$(( ${flag} + 1 ))
@@ -29,7 +29,7 @@ do
         -g|--gpu)
             path="./gpu"
             if [ "$stop_assign" != true ]; then
-                image_name="cgrg/ssh-x11:gpu"
+                image_name="kai/ssh-x11:gpu"
             fi
             shift # past argument
             flag=$(( ${flag} + 1 ))

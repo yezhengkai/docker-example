@@ -1,9 +1,9 @@
 #!/bin/bash
 ## setting
 # basic information
-image_name="cgrg/matlab-vnc:gpu"
+image_name="kai/matlab-vnc:gpu"
 container_name="matlab-vnc-gpu"
-hostname_in_container="cgrg_matlab_vnc_gpu"
+hostname_in_container="kai_matlab_vnc_gpu"
 
 # VNC port
 host_port_vnc=5901

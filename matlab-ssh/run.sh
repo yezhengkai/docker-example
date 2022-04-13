@@ -1,9 +1,9 @@
 #!/bin/bash
 ## setting
 # basic information
-image_name="cgrg/matlab-ssh:gpu"
+image_name="kai/matlab-ssh:gpu"
 container_name="matlab-ssh-gpu"
-hostname_in_container="cgrg_matlab_ssh_gpu"
+hostname_in_container="kai_matlab_ssh_gpu"
 
 # SSH port
 host_port_ssh=49154

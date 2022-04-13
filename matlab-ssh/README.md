@@ -32,7 +32,7 @@ Download the required version of matlab installation files from the [official we
 Please refer to ssh-x11 directory to create base image.
 
 ## 3. Change base image (optional)
-You can choose "cgrg/ssh-x11:cpu" or "cgrg/ssh-x11:gpu" as base images.
+You can choose "kai/ssh-x11:cpu" or "kai/ssh-x11:gpu" as base images.
 
 ## 4. Build temp image from dockerfile
 You can change variables in [build.sh](build.sh).
@@ -67,7 +67,7 @@ rm -rf /tmp/*
 
 ## 8. Commit as a new image that already contains Matlab
 ```bash
-docker commit matlab-ssh-gpu cgrg/matlab-ssh:gpu
+docker commit matlab-ssh-gpu kai/matlab-ssh:gpu
 ```
 
 If you successfully commit to a new image, you can delete the temporary container.

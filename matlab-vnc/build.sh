@@ -2,7 +2,7 @@
 ## setting
 path="./base-container-template"
 Dockerfile="${path}/Dockerfile.ubuntu18.xfce.vnc"
-image_name="cgrg/matlab-vnc:gpu"
+image_name="kai/matlab-vnc:gpu"
 
 
 ## build

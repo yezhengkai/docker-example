@@ -56,15 +56,15 @@ RUN echo "ssh-rsa AAAAB3N5aC1yc2EAAAADAQABAAABAQCm1alLL4jkTazolSfYl3+bzlLVXAFKdv
 ## 2. Build image from dockerfile
 You can change variables in [build.sh](build.sh).
 ```bash
-# build ./gpu/Dockerfile to cgrg/ssh-x11:gpu image, which will provide CUDA.
+# build ./gpu/Dockerfile to kai/ssh-x11:gpu image, which will provide CUDA.
 bash build.sh -g|--gpu
-# build ./cpu/Dockerfile to cgrg/ssh-x11:cpu image
+# build ./cpu/Dockerfile to kai/ssh-x11:cpu image
 bash build.sh -c|--cpu
 # assign image name and optionally a tag in the 'name:tag' format
 bash build.sh -c|-g|--cpu|--gpu -t|--tag name:tag
 
-# For example: build ./gpu/Dockerfile to cgrg/newbie:v0 image
-bash build.sh -g -t cgrg/newbie:v0
+# For example: build ./gpu/Dockerfile to kai/newbie:v0 image
+bash build.sh -g -t kai/newbie:v0
 ```
 
 # Use image 

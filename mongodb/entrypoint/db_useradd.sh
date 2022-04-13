@@ -20,21 +20,21 @@ echo "Creating mongo users..."
 #);"
 
 mongo admin --host localhost --port 27017 -u root -p rootPassHERE << EOF
-use cgrgdb
+use mydb
 db.createUser(
   {
-    user: "cgrguser1",
-    pwd: "cgrguser1Pass",
+    user: "user1",
+    pwd: "user1Pass",
     roles:[ {role: "readWrite",
-             db: "cgrgdb"} ]
+             db: "mydb"} ]
   }
 )
 db.createUser(
   {
-    user: "cgrguser2",
-    pwd: "cgrguser2Pass",
+    user: "user2",
+    pwd: "user2Pass",
     roles:[ {role: "readWrite",
-             db: "cgrgdb"} ]
+             db: "mydb"} ]
   }
 )
 EOF

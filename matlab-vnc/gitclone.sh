@@ -68,7 +68,7 @@ fi/
 
 
 ## modify "base-container-template/Dockerfile.ubuntu18.xfce.vnc"
-# 1. use our image "cgrg/matlab-ssh:gpu"
+# 1. use our image "kai/matlab-ssh:gpu"
 # 2. install "htop": An interactive system-monitor process-viewer and process-manager. (CLI)\
 # 3. install "gnome-system-monitor": gnome-system-monitor
 # 4. install "file-roller": unzip file
@@ -80,7 +80,7 @@ fi/
 # 10. comment out line 58 "RUN apt-get install -y sudo xrdp"
 # 11. comment out line 61 "RUN chgrp 100 /etc/passwd"
 # 12. comment out line 67 "EXPOSE 3389"
-sed -i '{3 s/ubuntu:18.04/cgrg\/matlab-ssh:gpu/g
+sed -i '{3 s/ubuntu:18.04/kai\/matlab-ssh:gpu/g
 64 a RUN apt-get update \\ \
     && sudo apt-get upgrade -y \\ \
     && sudo apt-get install -y htop gnome-system-monitor file-roller p7zip* gedit okular eog sudo\\ \

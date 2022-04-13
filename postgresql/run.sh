@@ -1,8 +1,8 @@
 ## setting
 # basic information
-container_name="cgrg-postgresql"
+container_name="kai-postgresql"
 image_name="postgres:12.2"
-hostname_in_container="cgrg_postgresql"
+hostname_in_container="kai_postgresql"
 
 # postgresql port
 host_port_postgres=5432

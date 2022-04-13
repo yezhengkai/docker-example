@@ -1,9 +1,9 @@
 #!/bin/bash
 ## setting
 # basic information
-image_name="cgrg/ssh-x11:gpu"
+image_name="kai/ssh-x11:gpu"
 container_name="ssh-x11-gpu"
-hostname_in_container="cgrg_ssh_x11_gpu"
+hostname_in_container="kai_ssh_x11_gpu"
 
 # SSH port
 host_port_ssh=49154

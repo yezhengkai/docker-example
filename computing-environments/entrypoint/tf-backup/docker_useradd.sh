@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# add user ("uid", "gid" and "user" need user to change)
+# Add user ("uid", "gid", "username" and "password" need to be set by administrator)
 # you can use group settings to grant different privileges in hosts and containers
 groupadd -g 1001 user1 \
     && useradd -m -u 1001 -g 1001 -G sudo -s /bin/bash user1 \

@@ -16,20 +16,20 @@ from sqlalchemy.orm import sessionmaker
 ## setting
 #dialect = 'postgresql'
 #driver = 'psycopg2'
-#username = 'cgrguser1'
-#password = 'cgrguser1Pass'
-#host = 'cgrg-postgresql'
+#username = 'user1'
+#password = 'user1Pass'
+#host = 'kai-postgresql'
 #port = 5432
-#database = 'cgrgdb'
+#database = 'mydb'
 #DATABASE_URL = f'{dialect}+{driver}://{username}:{password}@{host}:{port}/{database}'
 
 DATABASE_INFO = {
     'drivername': 'postgresql+psycopg2',
-    'username': 'cgrguser1',
-    'password': 'cgrguser1Pass',
-    'host': 'cgrg-postgresql',
+    'username': 'user1',
+    'password': 'user1Pass',
+    'host': 'kai-postgresql',
     'port': '5432',
-    'database': 'cgrgdb',
+    'database': 'mydb',
     'query': None,
 }
 DATABASE_URL = URL(**DATABASE_INFO)

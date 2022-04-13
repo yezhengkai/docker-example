@@ -5,9 +5,9 @@
 
 ## setting
 # basic information
-image_name="cgrg/tf-ssh"
+image_name="kai/tf-ssh"
 container_name="tf-ssh"
-hostname_in_container="cgrg_tf"
+hostname_in_container="kai_tf"
 
 # ssh port
 host_port_ssh=49154
@@ -73,6 +73,7 @@ if [ "$force_remove_container" = true ]; then
 fi
 
 # find all .sh except docker_entrypoint.sh in ./src/ and copy them to docker-entrypoint-init.d/
+mkdir -p docker-entrypoint-init.d
 cp `find ./src -maxdepth 1 -name '*.sh' ! -name 'docker_entrypoint.sh'` docker-entrypoint-init.d/
 
 # run container

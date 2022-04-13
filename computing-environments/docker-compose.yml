@@ -2,9 +2,9 @@ version: "3.7"
 
 services:
   tf-ssh:
-    image: "cgrg/tf-ssh:latest"
+    image: "kai/tf-ssh:latest"
     container_name: "tf-ssh"
-    hostname: "cgrg_tf"
+    hostname: "kai_tf"
     ports:
       - "49154:22"
       - "6006:6006"
@@ -17,9 +17,9 @@ services:
     environment:
       NVIDIA_VISIBLE_DEVICES: "all"
   matlab-vnc-user1:
-    image: "cgrg/matlab-vnc:gpu"
+    image: "kai/matlab-vnc:gpu"
     container_name: "matlab-vnc-gpu-user1"
-    hostname: "cgrg_matlab_vnc_gpu"
+    hostname: "kai_matlab_vnc_gpu"
     user: "1001:1001"
     shm_size: "512M"
     ports:
@@ -35,9 +35,9 @@ services:
     secrets:
       - vnc_password_user1
   matlab-vnc-user2:
-    image: "cgrg/matlab-vnc:gpu"
+    image: "kai/matlab-vnc:gpu"
     container_name: "matlab-vnc-gpu-user2"
-    hostname: "cgrg_matlab_vnc_gpu"
+    hostname: "kai_matlab_vnc_gpu"
     user: "1002:1002"
     shm_size: "512M"
     ports:
@@ -54,8 +54,8 @@ services:
       - vnc_password_user2
   postgresql:
     image: postgres:12.2
-    container_name: "cgrg-postgresql"
-    hostname: "cgrg_postgresql"
+    container_name: "kai-postgresql"
+    hostname: "kai_postgresql"
     #ports:
     #  - "5432:5432"
     volumes:
@@ -72,8 +72,8 @@ services:
       - postgres_db
   mongodb:
     image: mongo:4.2.3-bionic
-    container_name: "cgrg-mongodb"
-    hostname: "cgrg_mongodb"
+    container_name: "kai-mongodb"
+    hostname: "kai_mongodb"
     #ports:
     #  - "27017:27017"
     volumes:

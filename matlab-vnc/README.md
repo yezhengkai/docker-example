@@ -16,7 +16,7 @@
 Please refer to matlab-ssh directory to create base image.
 
 ## 2. Clone from github
-Change "cgrg\/matlab-ssh:gpu" to your desired image at last "sed" command in gitclone.sh. 
+Change "kai\/matlab-ssh:gpu" to your desired image at last "sed" command in gitclone.sh. 
 
 Clone source code and modify some parts by this command.
 ```bash

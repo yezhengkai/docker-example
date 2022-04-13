@@ -4,11 +4,11 @@
 clc; clear; close all;
 
 %% Connect to MongoDB
-server = "cgrg-mongodb";
+server = "kai-mongodb";
 port = 27017;
-dbname = "cgrgdb";
-username = "cgrguser1";
-password = "cgrguser1Pass";
+dbname = "mydb";
+username = "user1";
+password = "user1Pass";
 
 conn = mongo(server, port, dbname, ...
              'UserName', username, ...

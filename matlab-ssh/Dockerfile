@@ -3,7 +3,7 @@
 
 
 # base image
-FROM cgrg/ssh-x11:gpu
+FROM kai/ssh-x11:gpu
 
 # skip the setup of the keyboard-configuration package
 ARG DEBIAN_FRONTEND=noninteractive
