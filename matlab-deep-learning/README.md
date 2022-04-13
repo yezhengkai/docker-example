@@ -21,5 +21,5 @@ bash run.sh
 ```
 
 ## 2. Use noVNC service
-1. Open a web browser and type "<ip>: <port>" in the top search panel to use the container (note: Default port is 6080).
+1. Open a web browser and type "\<ip>:\<port>" in the top search panel to use the container (note: Default port is 6080).
 2. Enter noVNC's connection password (note: default password is 12345678).
