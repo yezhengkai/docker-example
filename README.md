@@ -1,5 +1,5 @@
 # docker-example
-Repository of Dockerfile that I use and create
+A repository of docker images I created/pulled.
 
 ## Prerequisite
 1. [docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
