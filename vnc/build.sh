@@ -3,7 +3,7 @@
 ## setting
 path="./base-container-template"
 Dockerfile="${path}/Dockerfile.ubuntu18.xfce.vnc"
-image_name="cgrg/vnc-ubuntu18-xfce"
+image_name="kai/vnc-ubuntu18-xfce"
 
 
 ## build

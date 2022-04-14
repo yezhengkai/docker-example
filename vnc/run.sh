@@ -4,9 +4,9 @@
 
 ## setting
 # basic information
-image_name="cgrg/vnc-ubuntu18-xfce"
+image_name="kai/vnc-ubuntu18-xfce"
 container_name="vnc-ubuntu18-xfce"
-hostname_in_container="cgrg_vnc"
+hostname_in_container="kai_vnc"
 
 # RDP port
 host_port_rdp=3389

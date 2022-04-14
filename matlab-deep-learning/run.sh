@@ -7,7 +7,7 @@
 # basic information
 image_name="nvcr.io/partners/matlab:r2019b"
 container_name="matlab"
-hostname_in_container="cgrg_matlab"
+hostname_in_container="kai_matlab"
 
 # VNC port
 host_port_vnc=5901
