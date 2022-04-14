@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  # Configuration for Hub+Proxy
+  jupyterhub:
+    build: jupyterhub                # Build the container from this folder.
+    image: kai/jupyterhub:1.4.2
+    container_name: jupyterhub_hub   # The service will use this container name.
+    volumes:                         # Give access to Docker socket.
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./jupyterhub/jupyterhub_config.py:/srv/jupyterhub/jupyterhub_config.py:ro"
+    environment:                     # Env variables passed to the Hub process.
+      # make sure the mount directory is user-writable 
+      # DOCKER_JUPYTER_IMAGE: kai/julia-notebook:hub-1.4.2
+      # DOCKER_JUPYTER_IMAGE: kai/julia-matlab-vnc-notebook:hub-1.4.2-r2020b
+      # DOCKER_JUPYTER_IMAGE: kai/matlab-vnc-notebook:hub-1.4.2-r2020b
+      DOCKER_JUPYTER_IMAGE: jupyter/scipy-notebook:hub-1.4.2  # For testing we can use any image we want
+      DOCKER_NETWORK_NAME: ${COMPOSE_PROJECT_NAME}_default
+      HUB_IP: jupyterhub_hub
+      #    restart: on-failure
+
+  # Configuration for reverse proxy
+  reverse-proxy:
+    # TODO: use traefik instead of nginx
+    image: nginx:1.20-alpine
+    container_name: jupyterhub_reverse_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./reverse-proxy/nginx.conf:/etc/nginx/nginx.conf:ro"
+      - "./reverse-proxy/ssl.csr:/etc/nginx/ssl.csr:ro"
+      - "./reverse-proxy/ssl.key:/etc/nginx/ssl.key:ro"
+
+  # file browser
+  #  filebrowser:
+  #  image: hurlenko/filebrowser:v2.17.2  # unofficial support
+  #  container_name: jupyterhub_filebrowser
+  #  user: "1000:1000"
+  #  #ports:
+  #  #  - "80:80"
+  #  volumes:
+  #    - "./mount-volume:/data"
+  #    - "./filebrowser:/config"
+  #  environment:
+  #    FB_BASEURL: "/filebrowser"
