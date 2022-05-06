@@ -9,4 +9,5 @@ cp ./entrypoint/tf-backup/* ./entrypoint/tf-entry/
 
 # start service
 docker-compose down
+# TODO: maybe replace `docker-compose --compatibility up -d` with `docker stack deploy --compose-file docker-compose.yml computing-environments`
 docker-compose --compatibility up -d
