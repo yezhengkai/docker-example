@@ -1,0 +1,18 @@
+ARG JULIA_VERSION="1.9.3"  # only accept version supported by Jupyter Docker Stacks
+
+FROM jupyter/julia-notebook:julia-${JULIA_VERSION}
+
+USER root
+
+# Install quarto
+ARG QUARTO_VERSION="latest"
+RUN if [[ ${QUARTO_VERSION} == "latest" ]]; then \
+        QUARTO_VERSION=$(curl --silent "https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/'); \
+    fi \
+    && curl -o quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.deb \
+    && dpkg -i quarto-linux-amd64.deb \
+    && rm ./quarto-linux-amd64.deb
+
+USER ${NB_UID}
+
+

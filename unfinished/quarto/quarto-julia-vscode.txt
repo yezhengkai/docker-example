@@ -1,0 +1,20 @@
+ARG QUARTO_JULIA_TAG="latest"
+
+FROM quarto-julia:${QUARTO_JULIA_TAG}
+
+
+# 
+
+# Avoid VS Code extension reinstalls. For more information, see
+# - https://github.com/microsoft/vscode-remote-release/issues/7690
+# - https://code.visualstudio.com/remote/advancedcontainers/overview#_advanced-containers-topics
+# - https://code.visualstudio.com/docs/devcontainers/containers#_create-a-devcontainerjson-file
+RUN mkdir -p $VSCODE_PATH/extensions \
+    $VSCODE_INSIDER_PATH/extensions \
+    $SUB_PROJECT_DIR \
+    && chown -R $NB_USER \
+    $VSCODE_PATH \
+    $VSCODE_INSIDER_PATH
+
+
+
